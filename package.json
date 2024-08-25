@@ -1,0 +1,26 @@
+{
+  "name": "cypresswithcucumberbdd-course",
+  "version": "1.0.0",
+  "description": "Projeto realizado seguindo o curso da Udemy \"Cypress with Cucumber BDD - Automation Testing Bootcamp\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo Zirbell",
+  "license": "MIT",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
+    "@types/cypress-cucumber-preprocessor": "^4.0.5",
+    "cypress": "^12.14.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.1",
+    "ts-loader": "^9.5.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/**/*.ts"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
