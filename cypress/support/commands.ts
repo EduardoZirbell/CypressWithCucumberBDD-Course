@@ -1,3 +1,8 @@
+declare namespace Cypress {
+    interface Chainable<Subject> {
+        clickAndOpenLink_InSameTab(selector: string): Chainable<any>;
+    }
+}
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +28,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+
+Cypress.Commands.add('clickAndOpenLink_InSameTab', (selector) => {
+    cy.get(selector).invoke('removeAttr', 'target').click();
+});

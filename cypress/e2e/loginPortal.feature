@@ -1,3 +1,4 @@
+@login @regression
 Feature: Login Portal Page
 
     Background: Pre Conditions
@@ -11,9 +12,9 @@ Feature: Login Portal Page
         Then I should be presented with an alert with the message '<message>'
 
         Examples:
-            | title                                             | username  | password     | message              |
-            | Successful Login with webdriver user              | webdriver | webdriver123 | validation succeeded |
-            | Unsuccessful Login with invalid user              | webdriver | webdriver123 | validation failed    |
-            | Unsuccessful Login with invalid password          | webdriver | webdriver123 | validation failed    |
-            | Unsuccessful Login with invalid user and password | webdriver | webdriver123 | validation failed    |
-            | Unsuccessful Login without user and password      | webdriver | webdriver123 | validation failed    |
+            | title                                             | username   | password     | message              |
+            | Successful Login with webdriver user              | webdriver  | webdriver123 | validation succeeded |
+            | Unsuccessful Login with invalid user              | webdriver1 | webdriver123 | validation failed    |
+            | Unsuccessful Login with invalid password          | webdriver  | webdriver1   | validation failed    |
+            | Unsuccessful Login with invalid user and password | webdriver1 | webdriver1   | validation failed    |
+            | Unsuccessful Login without user and password      |            |              | validation failed    |

@@ -24,7 +24,9 @@ export default defineConfig({
       return config;
     },
     env: {
-      url: "https://www.webdriveruniversity.com/index.html",
+      url: "https://www.webdriveruniversity.com/index.html",       
     },
+    screenshotOnRunFailure: true,
+    experimentalOriginDependencies: true
   },
 });

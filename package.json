@@ -4,7 +4,13 @@
   "description": "Projeto realizado seguindo o curso da Udemy \"Cypress with Cucumber BDD - Automation Testing Bootcamp\".",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "full-regression-tests-headed-chrome": "cypress run --headed --browser chrome TAGS='@regression' && node cucumber-html-report.ts",
+    "full-regression-tests-headless-chrome": "cypress run --headless --browser chrome TAGS='@regression' && node cucumber-html-report.ts",
+    "login-tests-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/loginPortal.feature' && node cucumber-html-report.ts",
+    "login-tests-headless-chrome": "cypress run --headless --browser chrome --spec 'cypress/e2e/loginPortal.feature' && node cucumber-html-report.ts",
+    "contact-us-tests-headed-chrome": "cypress run -e TAGS=\"@contact-us\" --headed --browser chrome && node cucumber-html-report.ts",
+    "contact-us-tests-headless-chrome": "cypress run -e TAGS=\"@contact-us\" --headless --browser chrome && node cucumber-html-report.ts"
   },
   "author": "Eduardo Zirbell",
   "license": "MIT",
@@ -15,10 +21,24 @@
     "cypress": "^12.14.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.7.0",
     "ts-loader": "^9.5.1"
   },
   "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/support/step_definitions/**/*.ts"
+    "stepDefinitions": "cypress/support/step_definitions/**/*.ts",
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/cucumber-json/cucumber-report.json"
+    }
   },
   "dependencies": {
     "path": "^0.12.7"

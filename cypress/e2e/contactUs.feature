@@ -1,3 +1,4 @@
+@contact-us @regression
 Feature: ContactUs Page
     Background: Pre Conditions
         Given I navigate to the WebDriverUniversity HomePage
