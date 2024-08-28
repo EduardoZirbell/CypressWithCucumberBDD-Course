@@ -15,83 +15,78 @@ class ContactUsPO extends BasePO {
 
     navigateTo_ContactUs_Page() {
         super.navigate('Contact-Us/contactus.html');
-    }
+    };
 
     type_FirstName(firstName: string) {
-        if (firstName && firstName.trim() !== '') {
+        if (firstName != '') {
             this.elements.firstNameField()
                 .click()
                 .type(firstName);
-        } else {
-            cy.log('First name is undefined or empty');
-        }
-    }
+        };
+    };
 
     type_LastName(lastName: string) {
-        if (lastName && lastName.trim() !== '') {
+        if (lastName != '') {
             this.elements.lastNameField()
                 .click()
                 .type(lastName);
-        } else {
-            cy.log('Last name is undefined or empty');
-        }
-    }
+        };
+    };
 
     type_EmailAddress(email: string) {
-        if (email && email.trim() !== '') {
+        if (email != '') {
             this.elements.emailAddressField()
                 .click()
                 .type(email);
-        } else {
-            cy.log('Email is undefined or empty');
-        }
-    }
+        };
+    };
 
     type_Comment(comment: string) {
-        if (comment && comment.trim() !== '') {
+        if (comment != '') {
             this.elements.commentField()
                 .click()
                 .type(comment);
-        } else {
-            cy.log('Comment is undefined or empty');
-        }
-    }
+        };
+    };
 
     clickOn_Submit_Button() {
         this.elements.submitButton()
-            .should('exist')
             .click();
-    }
+    };
 
     clickOn_Reset_Button() {
         this.elements.resetButton()
-            .should('exist')
             .click();
-    }
+    };
 
     verify_Success_Message() {
         this.elements.successMessage()
             .should('have.text', 'Thank You for your Message!');
-    }
+    };
 
     verify_Error_Message() {
         this.elements.errorMessage()
             .should('contain.text', 'Error: all fields are required');
-    }
+    };
 
     verify_Invalid_Email_Message() {
         this.elements.errorMessage()
             .should('contain.text', 'Error: Invalid email address');
-    }
+    };
 
     verify_Sucess_Or_Error_Message(message: string) {
-        if (message && message.trim() !== '') {
-            this.elements.successOrErrorMessage()
-                .contains(message);
-        } else {
-            throw new Error('Message is undefined or empty');
-        }
-    }
-}
+        //Course's way to do
+        this.elements.successOrErrorMessage()
+            .contains(message);
+        // My way to do
+        // if (message.includes('Thank You for your Message!')) {
+        //     cy.get('#contact_reply h1')
+        //         .should('have.text', message)
+        // } else {
+        //     cy.get('body')
+        //         .should('contain.text', 'Error: Invalid email address')
+        // }
+    };
+};
 
 export default ContactUsPO;
