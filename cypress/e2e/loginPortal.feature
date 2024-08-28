@@ -3,7 +3,7 @@ Feature: Login Portal Page
 
     Background: Pre Conditions
         Given I navigate to the WebDriverUniversity HomePage
-        When I click on the login portal button
+        When I test origin
 
     Scenario Outline: Validate Login in the Portal : <title>
         And I type the username '<username>'
